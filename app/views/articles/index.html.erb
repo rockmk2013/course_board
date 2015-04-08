@@ -1,13 +1,17 @@
 <h2>List</h2>
 
-<%=form_tag articles_path,methood:"get" do%>
-title<%=text_field_tag :title%>
-content<%=text_field_tag :content%>
-<%=submit_tag "search"%>
+<%=form_tag articles_path,method:"get" do%>
+課程名稱<%=text_field_tag :title%>
+</br>
+授課老師<%=text_field_tag :content%>
+</br>
+上課時間<%=text_field_tag :time%>
+<%=submit_tag "Search"%>
 <%end%>
 
 <% @articles.each do|article|%>
 <%= link_to article.title, article_path(article) %>
-<%= link_to "edit", edit_article_path(article) %>
-<%= link_to "delete", article_path(article),method:"delete" %>
+<%= link_to "Edit", edit_article_path(article) %>
+<%= link_to "Delete", article_path(article),method:"delete" %>
+</br>
 <%end%>

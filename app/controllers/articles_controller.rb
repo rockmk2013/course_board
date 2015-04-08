@@ -7,6 +7,15 @@ def index
 	if params[:content].present?
 		@articles=@articles.where("content like ?","%#{params[:content]}%")
     end
+    if params[:time].present?
+		@articles=@articles.where("time like ?","%#{params[:time]}%")
+    end
+    if params[:place].present?
+		@articles=@articles.where("place like ?","%#{params[:place]}%")
+    end
+    if params[:credit].present?
+		@articles=@articles.where("credit like ?","%#{params[:credit]}%")
+    end
 end
 def new 
 	@article=Article.new
@@ -45,6 +54,6 @@ end
 private
 	
 def article_params
-	params.require(:article).permit(:title,:content)
+	params.require(:article).permit(:title,:content,:time,:place,:credit)
 end
 end
