@@ -1,0 +1,12 @@
+<h2>add new</h2>
+<%= form_for @article do|f|%>
+<div>
+	title
+<%=f.text_field :title%>
+</div>
+<div>
+	words
+<%=f.text_area :content%>
+</div>
+<%=f.submit%>	
+<%end%>
